@@ -69,5 +69,6 @@ keyInput.addEventListener('keydown', function (event) {
 	} else {
     console.log('others');
 	}
+// 수정
 
 });
