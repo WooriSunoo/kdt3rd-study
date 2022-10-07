@@ -1,0 +1,112 @@
+/* common */
+* {
+    box-sizing: border-box;
+    font-size: 40px;
+    font-weight: 700;
+    text-align: center;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+}
+
+/* TODO: HTMl에 대해 배울 때, semactic tag에 대해 배웠었죠? 
+복습할 겸 flex를 이용해 시멘틱 웹을 구성해주세요. */
+
+header{
+    background-color: orange;
+}
+nav{
+    background-color: rgb(41, 116, 246);
+}
+aside{
+    background-color: pink;
+    width: 150px;
+    height: 800px;
+    /* flex-direction:column; */
+    /* align-content: space-between; */
+
+    
+
+    /* justify-content: flex-start; */
+    
+    /* justify-content: flex-end; */
+    
+    /* justify-content: space-between; */
+    
+    /* justify-content: space-around; */
+    
+    /* justify-content: space-evenly; */
+
+    /* align-items: 교차축에 대해 item을 어떻게 배치할 것인가?
+        - flex-direction이 수평 정렬일 때; 교차축= column
+        - flex-direction이 수직 정렬일 때; 교차축= row
+
+        (사용 가능한 속성)
+        - stretch(default):cpmtaome의 교차축을 채우기 위해 늘림
+            -현재 .items 요소에 width, height 값이 있어 늘어나지 않음
+        -flex-start: 교차축의 시작점으로 정렬
+        -flex-end: 교차축의 끝점으로 연결
+        -center: 교차축의 가운데 정렬
+        -baseline: item을 텍스트의 베이스라인을 기준으로 정렬
+    */
+    /* align-items: stretch; */
+    /* align-items: flex-end; */
+    /* align-items: flex-start; */
+    /* align-items: center; */
+    /* align-items:baseline; */
+
+
+    /* flex-wrap: 즐바꿈(개행)처리
+     -> 컨테이너가 한 줄에 아이템을 다 수용하지 못할 때, 줄바꿈 여부 설정가능
+     (사용가능한 속성)
+        - wrap: 줄바꿈
+        - wrap-reverse: 출바꿈+아이템을 역순 배치
+        
+        카드가 여러개...백화점..넘칠 때 줄바꿈할때 사용*/
+    /* width: 300px; */
+    /* flex-wrap: wrap; */
+
+    /* align-content: 여러 행 정렬
+        (조건) flex-wrap: wrap 상태에서 아이템이 2줄이상 일 때 교차축 방향 설정
+    */
+
+    /* height: 300px; */
+
+    /* align-content: flex-start, end: align-itme이랑 다르게 padding없이 여러행이 다 붙음 */
+    /* align: 교차축기준, justify: 주축기준?? */
+    /* align-content: stretch; */
+    /* align-content: flex-start; */
+    /* align-content: flex-end; */
+    /* align-content: center; */
+    /* align-content: space-between; */
+    /* align-content: space-around; */
+    /* align-content: space-evenly; */
+}
+
+.green{
+    background-color: rgb(122, 235, 180);
+}
+
+.yellow{
+    background-color: rgb(247, 208, 68);
+}
+
+footer{
+    text-align: center;
+    display: flex;
+    background-color: rgb(71, 153, 234);
+    
+    flex-direction:column;
+}
+
+main{
+    display: flex;
+    flex-direction:row;
+}
+
+article{
+    width:  1000px;
+    height: 200px;
+}

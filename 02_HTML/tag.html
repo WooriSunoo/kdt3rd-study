@@ -1,0 +1,86 @@
+<html lang="ko">
+    <head> 
+        <title>HTML 태그</title>
+
+
+    </head>
+    <body>
+        여기는 html문서 내용을 채우는 곳입니다
+        <!--주석: 개발자를 위한 설명글-->
+        <!-- CTRL + /  저장후 싫행-->
+        <h1>제목입니다.</h1>
+        <h2>제목입니다.</h2>
+        <h3>제목입니다.</h3>
+        <h4>제목입니다.</h4>
+        <h5>제목입니다.</h5>
+        <h6>제목입니다.</h6>
+        <!-- p:하나의 문단을 표시하고 싶을 때 -->
+        <p>여기는 첫번째 문단입니다. 하나의 문단을 표시하고 싶을 때 p태그를 사용해요</p>
+        <p>여기는 첫번째 문단입니다. 하나의 문단을 표시하고 싶을 때 p태그를 사용해요</p>
+        <!-- img: imge 이미지를 표시 -->
+        <!-- src 속성: 이미지 경로 -->
+        <!-- width, height  속성 -->
+        <!-- alt, title 속성 -->
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Golde33443.jpg/420px-Golde33443.jpg" width="200" height="200">
+        <img src="./image/puppy.jpg">
+        <img src="C:\Users\student18\Documents\kdt3rd_study\02_HTML\image\puppy.jpg" title="마우스를 올리면 설명을 볼 수 있어요">
+        <img src="C:\Users\student18\Documents\kdt3rd_study\02_HTML\image\puppy2.jpg" alt="강아지">
+        <!-- a -->
+        <!-- href 속성: 주소 -->
+        <br>
+        <a href=""> a태그입니다.</a>
+        <br>
+        <a href="https://www.naver.com/">NAVER</a>
+        <a href="https://www.google.co.kr/">GOOGLE</a>
+        <a href="https://www.daum.net/" target="_blank">DAUM</a>
+        <hr>
+
+        <!-- div:division 가상의 레이아웃 -->
+        <div>div1</div>
+        <div>div2</div>
+        <div>
+            <div>div안에 div1</div>
+            <div>div안에 div2</div>
+        </div>
+
+        <!-- span: 인라인 요소(컨텐츠만큼 공간 차지) -> 줄바꿈x -->
+        <span>apan1</span>
+        <span>apan2</span>
+        <p>안녕하세요. 저는 <span>최우리</span>입니다.</p>
+
+        <!-- ul, ol, li -->
+        <!-- ul: unordered list(순서가 없는 목록) -->
+                <!-- ol: unordered list(순서가 있는 목록) -->
+                <!-- type 속성:1,A, a, i, I -->
+                <!-- li: list -->
+         <ul>
+            <li>사과</li>
+            <li>오렌지</li>
+            <li>키위</li>
+            <li>딸기</li>
+         </ul>       
+         <ol type="a" start="4" reversed>
+            <li>one</li>
+            <li>two</li>
+            <li>three</li>
+            <li>four</li>
+         </ol>
+         <!-- ul, ol 중첩사용 -->
+         <!-- ul>ul, ul>ol, ol>ol, ol>ul 안에 들어가기가능 -->
+         <hr>
+         <ul>
+            <li>요소1</li>
+            <li>요소2</li>
+            <ol>
+                <li>요소2의 자식요소1</li>
+                <li>요소2의 자식요소2</li>
+                <li>요소2의 자식요소3</li>
+            </ol>
+            <li>요소3</li>
+            <li>요소4</li>
+         </ul>
+
+
+  
+    </body>
+</html>

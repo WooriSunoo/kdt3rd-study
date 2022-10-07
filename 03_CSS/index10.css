@@ -1,0 +1,89 @@
+/* transition
+: 프로퍼티(=속성) 값 변경 시 , 일정 시간에 걸쳐 변화가 일어나도록 
+    - transition-property: 변화 대상인 css속성을 지정(defalt:all)
+    - transition-duration:변화가 일어날 시간 지정(단위: s, ms)
+    - transition-timing-function: 변화 시간별 속도 지정
+        -linear, ease, ease-in, ease-out, ease-in-out
+        -opacity:투명도
+    - transition-delay:지연 시간 =몇 초 기다렸다가 시작할건지(단위:s, ms)
+
+*/
+
+
+.box{
+    width: 100px;
+    height: 100px;
+    /* pointer: 요소에 마우스 올리면 커서가 손가락으로바뀜
+    cursor 속성
+    : 요소 위에 마우스 커서가 올라갔을 때 보여줄 모양을 지정
+    
+        -default
+        - pointer
+        - wait
+        - not allowed*/
+    cursor: pointer;
+
+}
+
+.box1:hover{
+    width:400px;
+    background-color: blue;
+    /* 투명도 50% */
+    opacity: 0.2;
+    /* opacity속성
+        :0~1사이의 값으로 불투명도 설정
+        -0: 요소가 완전히 투명해짐->보이지않음
+        -0~1사이의 값: 요소가 반투명해짐->뒤에 내용을 볼 수 있음
+        - 1: 요소가 불투명해짐; */
+    /* 1초동안 너비에대해 transition 속성에 변화를줌
+    ease in out 너비가 서서히 변화
+    
+    두가지, 쉼표로
+    모든것에 변화 all
+    transition-delay: 2s: 2초 기다렸다 변화 시작*/
+   /* transition-property: all;
+    transition-duration: 1s;
+    transition-timing-function: ease-in-out;
+    transition-delay: 2s;
+
+    /* 축약형 
+    
+        transiton: property duration timing-function delay 순서로*/
+    /* transition:all 1s ease-in-out 2s; */
+    /* .4s=0.4s */
+    transition:all .4s;
+}
+/* hover다음에 공백 */
+.box2:hover {
+    transform: rotate(180deg);
+    background-color: green;
+    transition-property: all;
+    transition-duration: 1s;
+    -o-transition-timing-function: ease-out;
+}
+.box3:hover{
+    transform:scale(3) translate(100px, 100px);
+    transition-property: all;
+    transition-duration: 3s;
+    transition-timing-function: ease-out;
+}
+
+.box4:hover{
+    transform:translate(-10px);
+    /* 그림자 */
+    box-shadow: 4px 4px 10px #0008; /*#00000080*/
+
+    transition:all .2s ease-in;
+}
+.box1{
+    background-color: red;
+}
+.box2{
+    background-color: orange;
+}
+.box3{
+    background-color: yellow;
+}
+.box4{
+    background-color: green;
+}

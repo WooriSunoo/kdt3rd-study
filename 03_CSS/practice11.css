@@ -1,0 +1,23 @@
+p{
+    
+position:relative;
+animation-name:moveX;
+animation-duration:5s;
+
+animation-timing-function: ease-in-out;
+
+/* 한줄 너비가 길다가 너비가 길어짐 */
+}
+@keyframes moveX{
+    0%{
+        left: 1500px;
+        width:4000px;
+    }
+    50%{
+        left:0px;
+    }
+    100%{
+        left:0px;
+        width:2000px;
+    }
+}

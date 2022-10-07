@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table 태그</title>
+</head>
+<body>
+    <!-- cellspacing dorder테두리 두줄...간격 cellpadding 칸안 여백 -->
+    <table border="1" cellspacing="5" cellpadding="10">
+        <!-- 표제목 -->
+        <thead></thead>
+        <!-- 표내용 안해도 자동생성-->
+        <tbody>
+
+            <tr>
+                <th>메뉴</th>
+                <th>가격</th>
+                <th>비고</th>
+            </tr>
+            <tr>
+                <td>국물떡볶이</td>
+                <td>5000원</td>
+                <td>2인 이상 주문 가능</td>
+            </tr>
+            <tr>
+                <td>어묵</td>
+                <td>1000원</td>
+                <td></td>
+            </tr>
+            
+            <tr>
+                <td>김밥</td>
+                <td>3500원</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>참치김밥</td>
+                <td>4500원</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>불고기김밥</td>
+                <td>5000원</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>라면</td>
+                <td>4000원</td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+    <p>주문표</p>
+    <!-- border stack overflow사이트 좋아요..숫자 빨간색 css사용권장 -->
+    <table border="1" cellspacing="5" cellpadding="10">
+        <th>메뉴</th>
+        <th>수량</th>
+        <tr>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+    <table border="1" cellspacing="5" cellpadding="10">
+        <!-- 표제목 -->
+        <thead>가격표 NEW</thead>
+        <!-- 표내용 안해도 자동생성-->
+        <tbody>
+
+            <tr>
+                <th>메뉴</th>
+                <th>가격</th>
+                <th>비고</th>
+            </tr>
+            <tr>
+                <td>국물떡볶이</td>
+                <td>5000원</td>
+                <td>2인 이상 주문 가능</td>
+            </tr>
+            <tr>
+                <td>어묵</td>
+                <td>1000원</td>
+                <td></td>
+            </tr>
+            
+            <tr>
+                <td>김밥</td>
+                <td>3500원</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>참치김밥</td>
+                <td rowspan="2">4500원</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>불고기김밥</td>
+                <!--rowspan해서 없앴음 <td>4500원</td> -->
+                <td></td>
+            </tr>
+            <tr>
+                <td>라면</td>
+                <td>4000원</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td colspan="3">순대(품절)</td>
+            </tr>
+        </tbody>
+    </table>
+    <table border="1" cellspacing="0" cellpadding="30" width="800"  >
+        
+        <tr align="center">
+            <td colspan="2">1</td>
+            <td>2</td>
+        </tr>
+        <tr align="center">
+            <td>3</td>
+            <td rowspan="2" style="font-size:20px"><strong>4</strong></td>
+            <td>5</td>
+        </tr>
+        <tr align="center">
+            <td>6</td>
+            <!-- <td>4</td> -->
+            <td style="color:rgb(141, 19, 19); font-size: 30px;" >7</td>
+        </tr>\
+    </table>
+    <table border="1" cellspacing="0" cellpadding="10">
+        <thead>자리표2</thead>
+        <tr>
+            <td>1</td>
+            <td>2</td>
+            <td rowspan="2">3</td>
+            <td>4</td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td>2</td>
+            <td>6</td>
+        </tr>
+        <tr>
+            <td>7</td>
+            <td colspan="2">8</td>
+        </tr>
+    </table>
+
+    <h1>자리표</h1>
+    <!-- width 100%: 브라우저 너비만큼 -->
+    <table border="1" cellspacing="0" width="100%" cellpadding="20" style="text-align: center;">
+        <tr>
+            <td colspan="2">1</td>
+            <td>2</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td rowspan="2" style="font-size: 50px">4</td>
+            <td>5</td>
+        </tr>
+        <tr>
+            <td>6</td>
+            <td style="font-size: 50px; color: red">7</td>
+        </tr>
+    </table>
+
+    <h1>자리표2</h1>
+    <table border="1" cellspacing="0" width="500" height="500" style="text-align: center;">
+        <tr>
+            <td>1</td>
+            <td>2</td>
+            <td rowspan="2">3</td>
+            <td>4</td>
+        </tr>
+        <tr>
+            <td colspan="2">5</td>
+            <td rowspan="2">6</td>
+        </tr>
+        <tr>
+            <td>7</td>
+            <td colspan="2">8</td>
+        </tr>
+
+    </table>
+</body>
+</html>

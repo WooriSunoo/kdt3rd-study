@@ -1,0 +1,111 @@
+body{
+    font-family: 'Noto Sans KR', sans-serif;
+}
+div{
+    /* 색상 */
+    color:royalblue;
+    /* background-color: pink; */
+    background: linear-gradient(10deg, yellow, pink);
+    /* height: 300px; */
+
+    /* 폰트 */
+    /* [font-size] px 단위 */
+    /* 1px : 1/96인치->절대단위 */
+    font-size: 50px;
+    /* [font-weight] 굵기설정 */
+    /* lighter 가늘게 normal 기본 bold 두꺼운 */
+    /* font-weight: bold; */
+    /* font-wight 100~900 글자 굵기 700이 기본값*/
+    font-weight: 700;
+
+    /* [font-family] 글씨체 */
+    /* serif  sans-serif돋움체 monospace글자마다폭길이동일
+    cursive 궁서체*/
+ /* font-family: cursive; */
+ /* 여러개 설정시 선언된 순서로 적용함 */
+ /* 공백있음 따움표넣음 */
+    /* font-family: 'courier new', courier, monospace; */
+    /* 한글 영어 글꼴 다르게-한글 없는 폰트를 먼저->한글을 뒤에 */
+    /* font-family: Georgia, "Malgen Gothic"; */
+
+    /* [웹폰트] */
+    /* : 모든 사용자가 동일한 폰트로 화면을 볼 수 있음 */
+    /* Google Font */
+    /* font style 글자모양 */
+    /* italic oblique */
+    /* italic 필기체느낌 */
+    /* oblique 보통 모양의 기울임 */
+
+    /* font-style: oblique; */
+
+    /* 크기 height를 없애면 기본 글자크기*/
+    /* width: 600px; */
+    /* height: 70px; */
+    width: 600px;
+
+    /* 테두리, 경계선 */
+    /* style 지정해야-> width, color 의미 있음 */
+    /* solid dotted 점선 dashed 긴점선 inset: 박스*/
+    /* border-radius 50% width, height 똑같이 길이로 */
+  
+    /* border-style: solid; */
+    /* border-width: 10px; */
+    /* border-color: limegreen; */
+
+    /* border 단축 프로퍼티 */
+    /* border: width, style, color 한번에 설정  */
+    border: 10px solid limegreen;
+  /* border-radius 두개 설정, 앞 1,2,3,4 사각형으로 5,30,5,30 */
+    /* border-radius: 5px 30px; */
+    /* border-radius: 5px 30px 5px 30px; */
+    /* border-radius: 5px 20px 45px 80px; */
+
+    /* 한쪽만 보더 */
+    /* border-top: 10px solid limegreen; */
+    /* border-bottom: 10px solid limegreen; */
+    /* border-left: 10px solid limegreen; */
+    /* border-left: 10px solid limegreen; */
+
+    /* index3.html 에 p태그와 span태그 요소를 만들고 border연습 */
+
+    /* 박스모델 */
+    /* 요소의 너비와 높이를 계산하는 방식 지정 */
+    /* box-sizing: content-box; 디폴트값*/
+    box-sizing: border-box;
+    /* margin, padding */
+    /* margin : border바깥 공간 */
+    /* padding: content와 border사이 공간 */
+    /* padding: 20px; */
+    /* margin:50px */
+    /* padding-top: 20px; */
+    /* padding-bottom: 20px; */
+    /* top left bottom right */
+    padding: 20px 20px 20px 20px;
+
+    /* margin-top: 50px; */
+    /* margin-bottom: 50px; */
+    /* margin-right: 50px; */
+    /* margin-left: 50px; */
+
+    margin: 50px 30px
+
+
+}
+h1{
+    font-family: 'Kirang Haerang', cursive;
+}
+p{
+    font-size: 50px; 
+    font-weight: 700;
+    width: 400px;
+    border:1px solid black;
+
+    /* box-shadow */
+    /* 그림자 */
+    /* rgba a가 투명도 .2=0.2 20%의 투명도 0,0,0 검정 */
+    /* box-shadow :xoffset, yoffset, blur, color */
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.4);
+
+    /* text-shadow */
+    text-shadow: 1px 5px 15px blue;
+}

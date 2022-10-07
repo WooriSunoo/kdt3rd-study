@@ -1,0 +1,147 @@
+/* 
+ transiton vs. animation
+  - transiton:변화될 "스타일"을 지정
+   - hover, onclick 이벤트에 의해 발생
+  
+  - animation: 중간 중간 단계를 지정해"세밀한 스타일 전환"가능
+   - 하나 이상의 @keyframes로 이루어짐
+
+*/
+
+/* 
+ animation 프로퍼티
+
+  - animation-name:@keyframes에 지정한 애니메이션 이름
+   - 시작:from or 0%
+   - 중간: 0~100$
+   - 끝:to or 100% 
+  - animation-duration: 애니메이션 한 사이클이 얼마동안 일어날 것인지 (단위:s, ms)
+  - animation-delay: 요소가 그려지고 난 후, 언제 애니메이션을 시작할지(단위:s, ms)
+  - animation-interation-count:애니멩션 반복 횟수(default:1)
+    - 정수로-횟수-지정 or infinite
+  - animation-timing-function: 중간중간 어떤 시간으로 상태를 변화시킬지
+   - linear, ease(default), ease-in, ease-out, ease-in-out
+  - animation-direction: 애니메이션이 끝나고 난 후, 반복될 때 진행할 방향 지정
+   - normal, reverse, alternate(처음에는 정방향 짝수번째는 역방향으로, alternate-reverse)
+*/
+.box{
+    width: 100px;
+    height: 100px;
+    background-color: cyan;
+ /* 자신의 원래기준 */
+    position:relative;
+
+    
+/* 애니메이션 연결 */
+animation-name:moveX;
+animation-duration:2s;
+
+/* 반복횟수 default: 1회 */
+
+/* 반복횟수 5회 */
+animation-iteration-count:5;
+/* linear 부드럽게 계속 */
+/* animation-timing-function: linear; */
+
+
+animation-timing-function: ease-in-out;
+
+animation-delay:2s;
+}
+
+
+/* X축기준으로 움직임 */
+/* left사용해서 처음 시작할때 0%일때 25%일 때 50%일때, 75%일때 100%일때
+오른쪽으로 50%갔다가 다시 돌아오는 애니메이션 */
+@keyframes moveX{
+    0%{
+        left: 0px;
+    }
+
+    25%{
+        left:200px;
+    }
+    50%{
+        left:400px;
+
+    }
+    75%{
+        left:200px;
+
+    }
+    100%{
+        left:0px;
+    }
+}
+
+
+.bounce-ball1{
+    position:relative;
+    left:100px;
+    top:0;
+    width:100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: #0f0; /*#00ff00 = rgb(0, 255, 0)*/
+
+    /* animation연결 */
+    /*animation-name:bounce1;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
+    /* 계속 튕기게 */
+    /*animation-iteration-count: infinite;
+    animation-direction: alternate;
+    /* alternate:홀수번째 정방향, 짝수번째 역방향(reverse) */
+
+    /* animation축약형
+    animation:name duration timing-function delay iteration-count direction
+    */
+
+    animation: bounce1 1s ease-out infinite alternate;
+}
+/* from 위에서 300px지점으로 떨어졌다 to 위에서 50지점으로 */
+/* direction쓰기전엔 올라가기만...  */
+@keyframes bounce1 {
+    /* 시작..from 끝 to */
+    from{
+        top: 300px;
+    }
+/* 끝 */
+    to{
+        top:50px;
+    }
+}
+
+
+.bounce-ball2{
+    position:fixed;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: tomato;
+    animation: bounce2 2s ease-out infinite alternate;
+    
+    bottom:0;
+
+    /* 브라우저 창 기준으로 BOTTOM에서 튕겨지도록 
+    스크롤 해도 보이도록 */
+
+    /* 300px 50%일때 다시 내려오는 */
+}
+
+@keyframes bounce2 {
+    /* 시작..from 끝 to */
+    /* 처음과 끝은 쉽표로 같이쓰기가능 from, to */
+    from, to{
+        bottom: 0px;
+        animation-timing-function: ease-out;
+        /* 정상속도->천천히 속도 줄임. @keyframes안에 쓸 수도있음 */
+    }
+
+    50%{
+        bottom: 300px;
+        animation-timing-function: ease-in;
+        /* 천천히 시작->정상속도 */
+    }
+}
+

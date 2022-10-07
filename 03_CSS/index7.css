@@ -1,0 +1,22 @@
+
+/* oberflow: 컨텐츠가 넘치는 상황에서 어떻게 처리할 것인가?
+ - visible:기본값으로 벗어난 부분 표시
+ - hidden: 넘치는 부분 자르기
+ - scroll: 스크롤 생겨서 넘치는 부분 확인가능(항상 스크롤표시, 최신 브라우저 auto랑 같게 표시되기도)
+ - auto: 넘칠 때만 스크롤 표시
+  */
+
+  .parent{
+    width: 400px;
+    height: 100px;
+    background-color: skyblue;
+
+    /* overflow: visible; */
+    /* overflow: hidden; */
+    /* overflow: scroll; */
+    /* overflow: auto; */
+
+    /* overflow-x x축에 대해 visible, hidden...4가지 사용가능 */
+    /* overflow-y */
+    overflow-y: auto;
+}

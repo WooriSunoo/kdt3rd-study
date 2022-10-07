@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- CSS 참조방식1)외부 스타일 시트 -->
+    <link rel="stylesheet" href="./index.css">
+    <!--CSS 참조방식2 내부 스타일 시트  -->
+    <style>
+        ul{
+            background-color: skyblue;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="color:red;">    CSS사용법을 익혀보자!
+    </h1>
+    <!-- CSS참조방식3 HTML 태그 내의 스타일 지정 -->
+    <ul>
+    <li>원</li>
+    <li>투</li>
+    <li>쓰리</li>
+</ul>
+<!--3가지 방법 중 어떤 방식이 가장 좋을까?  -->
+<!-- 1. 외부 스타일 시트 방식(CSS 의 장점을 모두 갖춤
+    - html 구조만, css는 디자인만
+    - 자주 사용되는 디자인->여러 파일에 링크 걸기 가능
+    - 효율성 좋다
+    2. 내부 스타일 시트방식
+     - 해당 html만 적용가능
+     - 유지보수성이 낮음
+     - 똑같은 스타일이 있으면 다른 html파일에 또 작성해야 함
+    3. html 태그 내에 스타일 지정 방식
+     - 직관적임, 수정이 빠르고 간편
+     - 권장하지 않음
+     - html 구조를 담당, css디자인만->위배) -->
+</body>
+</html>
