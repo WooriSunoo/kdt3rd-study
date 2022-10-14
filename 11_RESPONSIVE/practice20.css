@@ -1,0 +1,72 @@
+/* 1. 기본 태그 설정 */
+:root {
+  --height-header: 100px;
+}
+
+body {
+  box-sizing: border-box;
+  /* content + padding + border ->크기로 계산 */
+}
+
+a {
+  text-decoration: none;
+  color: black;
+  /* 하이퍼링크 기본밑줄 없애기 */
+}
+
+/* 2. header 설정 */
+header {
+  background-color: pink;
+  height: var(--height-header);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;
+}
+
+.icon-menu {
+  display: block;
+}
+
+.list-menu {
+  display: none;
+}
+
+.list-menu > a {
+  margin-left: 16px;
+}
+/* 3. 토글메뉴 */
+.toggle-menu {
+  display: block;
+  background-color: rgb(144, 223, 196);
+}
+
+.toggle-menu-container {
+  display: flex;
+  /* 세로로 */
+  flex-direction: column;
+}
+
+.toggle-menu-container > a {
+  margin: 12px 0;
+}
+
+.d-none {
+  display: none;
+}
+
+/* 헤더메뉴 반응형.. */
+/* viewport width >= 992px 일 때 */
+@media (min-width: 992px) {
+  .icon-menu {
+    display: none;
+  }
+  .list-menu {
+    display: block;
+  }
+}
+
+/* 4. toggle-menu 연 상태에서 width가 커지면 여전히 open 되어 있으므로 none처리 */
+.toggle-menu {
+  display: none;
+}

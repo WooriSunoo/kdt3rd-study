@@ -1,0 +1,20 @@
+.boxes {
+  display: flex;
+  /* justify-content: space-between; */
+}
+
+.box {
+  width: 100px;
+  height: 100px;
+  background-color: black;
+  margin: 10px;
+}
+
+@media (max-width: 700px) {
+  .boxes {
+    flex-direction: column;
+  }
+  .box {
+    background-color: blue;
+  }
+}
