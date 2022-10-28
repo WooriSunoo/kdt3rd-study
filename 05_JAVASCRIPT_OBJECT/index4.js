@@ -52,7 +52,7 @@ console.log(google.href);
 // setAttribute(): 속성값 설정하기
 console.log(google.getAttribute('href'));
 console.log(google.setAttribute('href', 'https://www.naver.com'));
-google.innerText = "Naver"
+google.innerText = "Naver"cd 
 //연습
 
 //이미지 요소
