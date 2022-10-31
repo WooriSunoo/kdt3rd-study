@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      span {
+        color: blue;
+        font-weight: 700;
+      }
+    </style>
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <li>이름: <%= userInfo.id %></li>
+    <li>성별: <%= userInfo.gender %></li>
+    <li>
+      생일: <%= userInfo.years %>-<%= userInfo.month %>-<%= userInfo.day %>
+    </li>
+    <li>취미: <%= userInfo.fav %></li>
+    <li>좋아하는 색: <%= userInfo.color %></li>
+    <li>좋아하는 숫자: <%= userInfo.favnum %></li>
+    <br />
+    <br />
+    <a href="/">홈으로 이동하기</a>
+    <script src="./result.js"></script>
+  </body>
+</html>

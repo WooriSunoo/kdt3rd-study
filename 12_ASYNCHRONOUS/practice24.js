@@ -36,3 +36,6 @@ changecolors("red")
   .then(function () {
     return changecolors("blue");
   });
+
+let gender = "man" == "man" ? "male" : "female";
+console.log(gender);
