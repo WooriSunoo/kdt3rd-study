@@ -10,11 +10,11 @@
     <h1><%= title %></h1>
     <br />
     <form action="/getForm" method="post" name="login1">
-      이름 <input type="text" name="id" />
+      이름 <input type="text" name="id" required />
       <fieldset>
         <legend>성별</legend>
-        <input type="radio" name="gender" value="male" checked />남자
-        <input type="radio" name="gender" value="female" />여자
+        <input type="radio" name="gender" value="male" required />남자
+        <input type="radio" name="gender" value="female" required />여자
       </fieldset>
 
       <fieldset>

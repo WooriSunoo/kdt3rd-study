@@ -20,6 +20,9 @@
       생일: <%= userInfo.years %>-<%= userInfo.month %>-<%= userInfo.day %>
     </li>
     <li>취미: <%= userInfo.fav %></li>
+    <% let gender = userInfo.gender %> <% gender == "male" ? '남자': 'female' %>
+    <li>테스트: <%= gender %></li>
+
     <li>좋아하는 색: <%= userInfo.color %></li>
     <li>좋아하는 숫자: <%= userInfo.favnum %></li>
     <br />
