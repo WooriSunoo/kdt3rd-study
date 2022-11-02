@@ -94,6 +94,8 @@
           console.log(response.data); //res.send(req.query)
           console.log(response.data.name);
 
+          // res.data.name가능
+
           resultBox.textContent = `${data.name}님 환영합니다! 가입이 완료되었습니다.`;
           resultBox.style.color = "blue";
         });
@@ -102,27 +104,40 @@
         console.log("####### click axiosPost #######");
 
         const form = document.forms["login"];
+
+        console.log("1", form.id2.checkValidity());
+        // gender는배열형태
+        console.log("2", form.pw.checkValidity());
         const data = {
           id2: form.id2.value,
           pw: form.pw.value,
         };
+        // 입력값이 올바르면  axios요청 시도
+        // 올바르지않다면   axios요청 시도X->경고메시지
 
-        axios({
-          method: "POST",
-          url: "/axios",
-          data: data, // POST 요청은 "data"에 정보를 실어서 보내야 됨
-        }).then(function (response) {
-          console.log(response);
-          console.log(response.data);
-          console.log(response.data.check);
-          if (response.data.check == true) {
-            resultBox2.textContent = `${data.id2}님! 로그인 성공`;
-            resultBox2.style.color = "blue";
-          } else {
-            resultBox2.textContent = `아이디 또는 패스워드 오류`;
-            resultBox2.style.color = "red";
-          }
-        });
+        if (form.id2.checkValidity() === true && form.pw.checkValidity()) {
+          axios({
+            method: "POST",
+            url: "/axios",
+            data: data, // POST 요청은 "data"에 정보를 실어서 보내야 됨
+          }).then(function (response) {
+            console.log(response);
+            console.log(response.data);
+            console.log(response.data.check);
+            if (response.data.check == true) {
+              resultBox2.textContent = `${data.id2}님! 로그인 성공😀😁`;
+              resultBox2.style.color = "blue";
+              // resultBox2.classList.remove('error')
+              // resultBox2.classList.add('sucess')
+            } else {
+              resultBox2.textContent = `아이디 또는 패스워드 오류😓`;
+              resultBox2.style.color = "red";
+            }
+          });
+        } else {
+          resultBox2.textContent = `아이디 또는 패스워드를 입력해주세요💦`;
+          resultBox2.style.color = "red";
+        }
       }
     </script>
   </body>

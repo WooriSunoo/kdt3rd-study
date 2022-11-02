@@ -26,6 +26,12 @@ app.get("/axios", function (req, res) {
 app.post("/axios", function (req, res) {
   console.log(req.body);
   // 받아온값 터미널에
+  // &&:AND 연산자 -> 둘다 참이여야 참
+  // ||: OR연산자
+  // !: NOT연산자
+  // (req.query객체..객체안에 객체가져오기
+  // res.send({userInfo:req.body, msg:'로그인 성공'})
+  // res.send({msg:'로그인 실패})
   let idtrue = req.body.id2 == realId;
   let pwtrue = req.body.pw == realPw;
   res.send({
