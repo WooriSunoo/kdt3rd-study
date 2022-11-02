@@ -63,8 +63,7 @@ app.post("/upload", uploadDetail.single("userfile"), function (req, res) {
   // [Object: null prototype] { title: 'lime!!!!' }
   console.log(req.body);
 
-  //   res.send("Uploads!");
-  res.render("result", { userInfo: req.body, userImg: req.file });
+  res.send("Uploads!");
 });
 
 // 2. array(): 여러 파일을 하나의input에 업로드할 때
