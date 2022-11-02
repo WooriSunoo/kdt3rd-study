@@ -35,7 +35,8 @@ app.set("view engine", "ejs");
 app.use("/views", express.static(__dirname + "/views"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-
+// app.js에 다음 코드 추가할 것. upload폴더에 접근할 수 있도록
+app.use("/uploads", express.static(__dirname + "/uploads"));
 app.get("/", function (req, res) {
   res.render("index", { title: "파일 업로드를 배워보자!" });
 });
@@ -76,7 +77,7 @@ app.post(
   "/upload/fields",
   uploadDetail.fields([{ name: "userfile1" }, { name: "userfile2" }]),
   function (req, res) {
-    console.log(req.files);
+    console.log(req.files); //{ name: "userfile1" }, { name: "userfile2" }
     console.log(req.body);
     res.send("Upload Multiple Each");
   }
