@@ -1,42 +1,48 @@
 const express = require("express");
-const path = require("path");
-// 내장모듈임. 확장자추출에서 사용
 const app = express();
 const PORT = 8000;
 
 // multer 설정
 const multer = require("multer");
+const path = require("path");
+const { runInNewContext } = require("vm");
 const upload = multer({
   dest: "uploads/",
 });
-const uploadDetail = multer({
+const uploadDeatil = multer({
   storage: multer.diskStorage({
-    destination(req, res, done) {
+    destination(req, file, done) {
       // req: 요청에 대한 정보
       // file: 파일에 대한 정보
       // done(에러, 저장경로): 함수
-      done(null, "uploads/"); //경로설정
+      done(null, "uploads/"); // 경로설정
     },
-    // 파일네임설정
     filename(req, file, done) {
       // req: 요청에 대한 정보
       // file: 파일에 대한 정보
-      // donw: 함수
-      const ext = path.extname(file.originalname); //file.originalname에서 "확장자" 추출
-      //   path.basename('peach.jpg)들어왔다면 =>결과 peach
-      done(null, path.basename(file.originalname, ext) + Date.now() + ext);
-      // [파일명+현재시간.확장자]이름으로 바꿔서 파일 업로드
+      // done: 함수
+      const ext = path.extname(file.originalname); // file.originalname에서 "확장자" 추출
+
+      // test
+      console.log(file.originalname); // peach.jpg
+      console.log(ext); // .jpg
+      console.log(path.basename(file.originalname, ext)); // path.basename('peach.jpg', '.jpg') => 'peach'
+
+      done(null, path.basename(file.originalname, ext) + Date.now() + ext); // peach + 123123123123 + .jpg
+
+      // [파일명+현재시간.확장자] 이름으로 바꿔서 파일 업로드
       // 현재시간: 파일명이 겹치는 것을 막기 위함
     },
   }),
-  limits: { fileSize: 5 * 1024 * 1024 },
+  // limits: { fileSize: 5 * 1024 * 1024 },
 });
+
 app.set("view engine", "ejs");
 app.use("/views", express.static(__dirname + "/views"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-// app.js에 다음 코드 추가할 것. upload폴더에 접근할 수 있도록
-app.use("/uploads", express.static(__dirname + "/uploads"));
+app.use("/uploads", express.static(__dirname + "/uploads")); // upload 폴더 접근 가능하게끔
+
 app.get("/", function (req, res) {
   res.render("index", { title: "파일 업로드를 배워보자!" });
 });
@@ -44,8 +50,8 @@ app.get("/", function (req, res) {
 // 1. single(): 하나의 파일 업로드할 때
 // single()의 인자: input 태그의 name 값
 // single() -> req.file 객체에 파일 정보
-// app.post("/upload", upload.single("userfile"), function (req, res) {
-app.post("/upload", uploadDetail.single("userfile"), function (req, res) {
+// app.post('/upload', upload.single('userfile'), function (req, res) {
+app.post("/upload", uploadDeatil.single("userfile"), function (req, res) {
   // req.file: 파일 업로드 성공 결과 (파일 정보)
   //   {
   //     fieldname: 'userfile', // 폼에 정의된 name
@@ -66,22 +72,35 @@ app.post("/upload", uploadDetail.single("userfile"), function (req, res) {
   res.send("Uploads!");
 });
 
-// 2. array(): 여러 파일을 하나의input에 업로드할 때
-// array()-> req.files 객체에 파일정보
-app.post("/upload/array", uploadDetail.array("userfiles"), function (req, res) {
-  console.log(req.files);
-  console.log(req.body);
+// 2. array(): 여러 파일을 하나의 input에 업로드할 때
+// array() -> req.files 객체에 파일 정보
+app.post("/upload/array", uploadDeatil.array("userfiles"), function (req, res) {
+  console.log(req.files); // [ {}, {}, {}, {} ] 형식으로 파일 정보 확인
+  console.log(req.body); // [Object: null prototype] { title: '과일들...' }
+  res.send("Uploaded Multiple!!!");
 });
-// 3. fields()여러 파일을 각각의 input에 업로드할 때
+
+// 3. fields(): 여러 파일을 각각의 input에 업로드할 때
 app.post(
   "/upload/fields",
-  uploadDetail.fields([{ name: "userfile1" }, { name: "userfile2" }]),
+  uploadDeatil.fields([{ name: "userfile1" }, { name: "userfile2" }]),
   function (req, res) {
-    console.log(req.files); //{ name: "userfile1" }, { name: "userfile2" }
-    console.log(req.body);
-    res.send("Upload Multiple Each");
+    console.log(req.files); // { userfile1: [{}], userfile2: [{}] }
+    console.log(req.body); // { title1: 'aaa', title2: 'bbb' }
+    res.send("Upload Multiple Each!!!");
   }
 );
+
+// 4. 동적 파일 업로드
+app.post(
+  "/dynamicFile",
+  uploadDeatil.single("dynamicFile"),
+  function (req, res) {
+    console.log(req.file);
+    res.send(req.file);
+  }
+);
+
 app.listen(PORT, function (req, res) {
   console.log(`http://localhost:${PORT}`);
 });
