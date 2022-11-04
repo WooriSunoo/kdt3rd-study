@@ -177,3 +177,13 @@ update user SET address = '제주특별자치도 제주시', name ='이지현' W
 -- delete에서는 where 절이 항상 따라다님
 DELETE FROM user WHERE id = 11;
 DELETE FROM user WHERE id >8;
+
+--################################
+-- DCL
+-- Data Control Language: 데이터 제어어
+-- 데이터베이스에 접근해 읽거나 쓰는 것을 제한할 수 있는 권한 부여/박탈
+
+-- GRANT: 특정 데이터베이스 사용자에게 특정 작업에 대한 수행 "권한 부여"
+-- REVOKE: 특정 데이터베이스 사용자에게 특정 작업에 대한 수행 "권한 박탈"
+
+mysql -u root -p
