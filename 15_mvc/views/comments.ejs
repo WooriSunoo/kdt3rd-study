@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>댓글 모음</h1>
+    <a href="/">홈으로 이동하기</a>
+
+    <!-- 전체 대슬 목록(4개 )보이기 -->
+    <!-- 배열의 길이 commentInfos의 length로 변경 commentInfos.length -->
+    <ul>
+      <% for (let i=0; i<commentInfos.length; i++){ %>
+      <li><%= commentInfos[i].userid %> - <a href="/comment/<%= i+1 %>"><%= commentInfos[i].comment %></a> </li>
+      <!-- 배열의 0번째 요소 = commentInfos 요소의 id :1 -->
+      <% } %>
+    </ul>
+  </body>
+</html>

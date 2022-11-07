@@ -83,6 +83,11 @@ app.post(
     res.send("Upload Multiple Each");
   }
 );
+
+// GET /comment/:id - 각 댓글을 자세히 볼 수 있음
+app.get("/comment/:id", (res, res) => {
+  res.render("comment");
+});
 app.listen(PORT, function (req, res) {
   console.log(`http://localhost:${PORT}`);
 });
