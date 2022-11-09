@@ -43,3 +43,6 @@ FLUSH PRIVILEGES;
 ALTER USER 'user'@'%' IDENTIFIED WITH mysql_native_password BY '1234'
 
 DELETE FROM user WHERE id = 11;
+
+-- 테이블 데이터 수정(update)
+UPDATE visitor SET name='누구', comment='아무말' WHERE id=1;
