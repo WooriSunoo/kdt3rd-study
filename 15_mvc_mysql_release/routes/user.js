@@ -28,4 +28,7 @@ router.post("/profile/edit", controller.postProfieedit); // 회원정보 수정
 // POST /user/profile/delete => localhost:PORT/user/profile/delete
 router.post("/profile/delete", controller.postProfiedelete);
 
+// GET /visitor => localhost:PORT/visitor
+router.post("/signup/check", controller.postCheck); // 중복체크
+
 module.exports = router;

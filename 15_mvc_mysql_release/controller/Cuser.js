@@ -29,13 +29,8 @@ exports.postSignup = (req, res) => {
   console.log("postSignup: ", req.body);
   // postSignup:  { name: '', : '' }
 
-  User.postSignup(req.body, (result) => {
-    console.log("Cuser.js", result); // Cuser.js 10
-    res.send({
-      userid: result, // pk(id) -> 10
-      name: req.body.name, // 폼에 입력한 name
-      pw: req.body.pw, // 폼에 입력한 pw
-    });
+  User.postSignup(req.body, () => {
+    res.send(true);
   });
 };
 
@@ -44,7 +39,15 @@ exports.postSignin = (req, res) => {
   console.log(req.body); //{id: '1'}
 
   User.postSignin(req.body, (result) => {
-    console.log("Cuser.js", result);
+    console.log("Cuser.js", result); /// [ {}]
+    // 유저 조회 0 ->로그인 성공 -> [{}]
+    // 유저 조회 x -> 로그인 실패 -> []
+    // if (result.length >0){
+    // res.send(true)
+    // }else {
+
+    // res.send(false)
+    // }
     if (result == undefined) {
       res.send(false);
     } else {
@@ -56,6 +59,7 @@ exports.postSignin = (req, res) => {
 // 로그인 정보조회
 exports.postProfie = (req, res) => {
   console.log(req.body); //{id: '1'}
+  // if (result.length >0 )
 
   User.postProfie(req.body, (result) => {
     console.log("Cuser.js postProfie", result, req.body);
@@ -83,5 +87,15 @@ exports.postProfiedelete = (req, res) => {
   User.postProfiedelete(req.body.id, (result) => {
     console.log("Cuser.js: ", result);
     res.send("삭제 성공!!!");
+  });
+};
+
+exports.postCheck = (req, res) => {
+  console.log(req.body); //{id: '1'}
+  console.log(req.body.id); //1\
+
+  User.postCheck(req.body.userid, (result) => {
+    console.log("Cuser.js", result);
+    res.send(result);
   });
 };

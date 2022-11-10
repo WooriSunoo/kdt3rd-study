@@ -4,6 +4,17 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- normalize link -->
+    <link rel="stylesheet" href="/static/css/normalize.css" />
+    <!-- google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Sunflower:wght@300;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- user.css link -->
+    <link rel="stylesheet" href="/static/css/user.css" />
     <title>회원가입</title>
 
     <!-- axios -->
@@ -14,27 +25,54 @@
     <form name="form_register">
       <label for="userid">ID</label>
       <input id="userid" type="text" name="userid" required /><br />
+      <button type="button" onclick="checkDuplication();">중복체크</button>
       <label for="password">Password</label>
       <input id="password" type="password" name="pw" required /><br />
       <label for="nickname">Name </label>
       <input id="nickname" type="text" name="name" required /><br />
       <button type="button" onclick="register();">Register</button>
     </form>
+    <div class="checkResult"></div>
 
     <a href="/user/signin">Login</a>
 
     <script>
-      function register() {
-        const form = document.forms['form_register'];
+      function checkDuplication() {
+        console.log("click checkDuplication");
 
+        const form = document.forms["form_register"];
+        const checkresult = document.console.dir(form);
+        const data = {
+          userId: form.userId.value,
+        };
+
+        axios({
+          method: "POST",
+          url: "//user/signup/check",
+          data: data,
+        }).then(function (response) {
+          console.log(response);
+          console.log(response.data);
+
+          if (response.data === true) {
+            checkResult.textContent = `이미 있는 아이디 입니다.`; // 실습 30
+            // loginResult.textContent = `${response.data.userInfo.name}님! 로그인 성공😁`; // 추가 실습
+          }
+        });
+      }
+      function register() {
+        checkDuplication();
+
+        const form = document.forms["form_register"];
+        // 폼 유효성 검사
         if (!form.checkValidity()) {
           form.reportValidity();
           return;
         }
 
         axios({
-          method: 'POST',
-          url: '/user/signup',
+          method: "POST",
+          url: "/user/signup",
           data: {
             userid: form.userid.value,
             pw: form.pw.value,
@@ -46,12 +84,12 @@
           })
           .then((data) => {
             // (1) alert 띄우기
-            alert('회원가입 성공');
+            alert("회원가입 성공");
             // (2) 가입 성공시 로그인 페이지로 이동
             // document.location.href란?
             // javascript에서 페이지 이동할 수 있는 방법
             // document 객체를 사용하기 때문에 프론트에서 사용 가능
-            document.location.href = '/user/signin';
+            document.location.href = "/user/signin";
           });
       }
     </script>

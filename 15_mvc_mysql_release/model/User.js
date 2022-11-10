@@ -53,7 +53,7 @@ exports.postSignup = (data, callback) => {
       }
 
       console.log("User.js", rows);
-      callback(rows.insertId); // pk (id)
+      callback(); // pk (id)
     }
   );
 };
@@ -80,7 +80,7 @@ exports.postProfieedit = (data, callback) => {
       }
 
       console.log("User.js", rows);
-      callback(true); // true: 수정 성공을 의미
+      callback();
     }
   );
 };
@@ -94,5 +94,20 @@ exports.postProfiedelete = (id, callback) => {
 
     console.log("User.js: ", rows);
     callback(true); // true : 삭제 성공을 의미
+  });
+};
+
+exports.postCheck = (data, callback) => {
+  conn.query(`SELECT * FROM visitor WHERE id=${data.userid}`, (err, rows) => {
+    if (err) {
+      throw err;
+    }
+
+    console.log("Visitor.js", !rows); // [ {}, {}, {}, {} ]
+    if (!rows) {
+      callback(false);
+    } else {
+      callback(true);
+    }
   });
 };
