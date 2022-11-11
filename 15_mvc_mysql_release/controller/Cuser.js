@@ -60,6 +60,8 @@ exports.postSignin = (req, res) => {
 exports.postProfie = (req, res) => {
   console.log(req.body); //{id: '1'}
   // if (result.length >0 )
+  // else 절 추가 xxxx
+  // POST /user/profile 요청 자체가 로그인 성공되어야만 수행하는 요청이라서
 
   User.postProfie(req.body, (result) => {
     console.log("Cuser.js postProfie", result, req.body);
