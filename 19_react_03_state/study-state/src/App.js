@@ -6,11 +6,12 @@ import StatePractice from "./StatePractice";
 import FuncStatePractice from "./FuncStatePractice";
 import HandlerEx from "./ex/HandlerEx";
 import HandlerEx2 from "./ex/HandlerEx2";
+import Prob52 from "./Prob52";
 
 function App() {
   return (
     <div className="App">
-      <Counter></Counter>
+      {/* <Counter></Counter>
       <hr />
       <SayFunction></SayFunction>
       <hr />
@@ -19,7 +20,8 @@ function App() {
       <StatePractice></StatePractice>
       <FuncStatePractice></FuncStatePractice>
       <HandlerEx></HandlerEx>
-      <HandlerEx2></HandlerEx2>
+      <HandlerEx2></HandlerEx2> */}
+      <Prob52></Prob52>
     </div>
   );
 }
