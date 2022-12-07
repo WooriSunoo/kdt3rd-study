@@ -1,4 +1,5 @@
 import "./App.css";
+// import "./styles/PostList.scss";
 // import LifeCycleFunc from "./LifeCycleFunc";
 // import LifeCycleClass from "./LifeCycleClass";
 import PostList from "./PostList";

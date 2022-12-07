@@ -1,0 +1,29 @@
+@import "./utils.scss";
+
+.SassPractice2 {
+  display: flex;
+  flex-direction: column;
+  .circle {
+    // width: $box-size;
+    // height: $box-size;
+    @include circle(100px);
+
+    // 중첩 안에서 &: 부모 선택자 참조하여 치환
+    // .box.red
+    &.div1 {
+      background-color: $color-pink;
+      animation: slide-1 2s ease infinite;
+      @include animation-mixin(slide-1, 100px);
+    }
+    &.div2 {
+      background-color: $color-yellow;
+      animation: slide-2 2s ease infinite;
+      @include animation-mixin(slide-2, 200px);
+    }
+    &.div3 {
+      background-color: $color-green;
+      animation: slide-3 2s ease infinite;
+      @include animation-mixin(slide-3, 300px);
+    }
+  }
+}

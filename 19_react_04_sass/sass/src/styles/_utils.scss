@@ -1,0 +1,62 @@
+// COLOR
+$color-red: red;
+$color-orange: orange;
+$color-yellow: yellow;
+$color-green: green;
+$color-blue: blue;
+$color-indigo: indigo;
+$color-purple: purple;
+$color-black: black;
+$color-pink: pink;
+
+// SIZE
+$box-size: 100px;
+
+// ANIMATION
+$animation-duration: 0.4s;
+
+// BREAKPOINT
+// 디자인할때 breakpoint정해놓고 들어감. 반응형할때 모든 페이지마다 통일시킴
+$breakpoint-md: 768px;
+
+@mixin box($x, $y) {
+  width: $x;
+  height: $y;
+  border: 2px solid $color-black;
+}
+
+@mixin round($round) {
+  transform: translateY(-50px);
+  transition: rotate($round);
+}
+
+@mixin circle($z) {
+  width: $z;
+  height: $z;
+  border-radius: 50%;
+}
+
+@mixin animation-mixin($name, $from) {
+  @keyframes #{$name} {
+    0% {
+      transform: translate3d(0, 0, 0);
+      //   opacity: 0;
+    }
+    25% {
+      transform: translate3d($from, 0, 0);
+      //   opacity: 0;
+    }
+    50% {
+      transform: translate3d($from, $from, 0);
+      //   opacity: 0;
+    }
+    75% {
+      transform: translate3d(0, $from, 0);
+      //   opacity: 0;
+    }
+    100% {
+      transform: translate3d(0, 0, 0);
+      //   opacity: 1;
+    }
+  }
+}
